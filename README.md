@@ -62,38 +62,38 @@ def gradientDescent(X,y,theta,alpha,num_iters):
     J_history.append(computeCost(X,y,theta))
   return theta,J_history
   
-  theta,J_history=gradientDescent(X,y,theta,0.01,1500)
-  print("h(x) value:")
-  print("h(x)="+str(round(theta[0,0],2))+" + "+str(round(theta[1,0],2))+"x1")
+theta,J_history=gradientDescent(X,y,theta,0.01,1500)
+print("h(x) value:")
+print("h(x)="+str(round(theta[0,0],2))+" + "+str(round(theta[1,0],2))+"x1")
   
-  print("Cost function using Gradient Descent:")
-  plt.plot(J_history)
-  plt.xlabel("Iteration")
-  plt.ylabel("$J(/Theta)$")
-  plt.title("Cost function using Gradient Descent")
+print("Cost function using Gradient Descent:")
+plt.plot(J_history)
+plt.xlabel("Iteration")
+plt.ylabel("$J(/Theta)$")
+plt.title("Cost function using Gradient Descent")
+
+print("Profit Prediction:")
+plt.scatter(data[0],data[1])
+x_value=[x for x in range(25)]
+y_value=[y*theta[1]+theta[0] for y in x_value]
+plt.plot(x_value,y_value,color="r")
+plt.xticks(np.arange(5,30,step=5))
+plt.yticks(np.arange(-5,30,step=5))
+plt.xlabel("Population of City (10,000s)")
+plt.ylabel("profit ($10,000)")  
+plt.title("Profit Prediction")
   
-  print("Profit Prediction:")
-  plt.scatter(data[0],data[1])
-  x_value=[x for x in range(25)]
-  y_value=[y*theta[1]+theta[0] for y in x_value]
-  plt.plot(x_value,y_value,color="r")
-  plt.xticks(np.arange(5,30,step=5))
-  plt.yticks(np.arange(-5,30,step=5))
-  plt.xlabel("Population of City (10,000s)")
-  plt.ylabel("profit ($10,000)")
-  plt.title("Profit Prediction")
+def predict(X,theta):
+predictions=np.dot(theta.transpose(),X)
+return predictions[0]
   
-  def predict(X,theta):
-  predictions=np.dot(theta.transpose(),X)
-  return predictions[0]
+predict1=predict(np.array([1,3.5]),theta)*10000
+print("Profit for the Population 35,000:")
+print("For population = 35,000,we predict a profit of $"+str(round(predict1,0)))
   
-  predict1=predict(np.array([1,3.5]),theta)*10000
-  print("Profit for the Population 35,000:")
-  print("For population = 35,000,we predict a profit of $"+str(round(predict1,0)))
-  
-  predict2=predict(np.array([1,7]),theta)*10000
-  print("Profit for the Population 70,000:")
-  print("For population = 70,000,we predict a profit of $"+str(round(predict2,0)))
+predict2=predict(np.array([1,7]),theta)*10000
+print("Profit for the Population 70,000:")
+print("For population = 70,000,we predict a profit of $"+str(round(predict2,0)))
   
 ```
 
