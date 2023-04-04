@@ -95,11 +95,6 @@ def gradientDescent(X,y,theta,alpha,num_iters):
   print("Profit for the Population 70,000:")
   print("For population = 70,000,we predict a profit of $"+str(round(predict2,0)))
   
-  
-  
-
-
-
 ```
 
 ## Output:
@@ -116,10 +111,6 @@ def gradientDescent(X,y,theta,alpha,num_iters):
 ![image](https://user-images.githubusercontent.com/128135616/229779038-4297305d-4597-4c14-b0a4-50784db2dba5.png)
 
 ![image](https://user-images.githubusercontent.com/128135616/229779544-1caedee5-4230-48e0-b303-b33f2f9ce8b1.png)
-
-
-
-
 
 
 
